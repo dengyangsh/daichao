@@ -1,5 +1,10 @@
 package com.dbdai.daichao.service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import com.dbdai.daichao.model.Merchant;
+
 /**
  * 
  * 
@@ -9,5 +14,12 @@ package com.dbdai.daichao.service;
  */
 public interface MerchantService {
 
-
+	/**
+	 * 獲取最合適的商家
+	 * @param score
+	 * @param age
+	 * @param amount
+	 * @return
+	 */
+	public List<Merchant> getAdaptMerchant(Integer score, Integer age, BigDecimal amount);
 }

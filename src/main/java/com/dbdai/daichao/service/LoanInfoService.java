@@ -1,5 +1,7 @@
 package com.dbdai.daichao.service;
 
+import com.dbdai.daichao.model.LoanInfo;
+
 /**
  * 
  * 
@@ -9,5 +11,11 @@ package com.dbdai.daichao.service;
  */
 public interface LoanInfoService {
 
+	/**
+	 * 
+	 * 存储用户
+	 * @param loanInfo
+	 */
+	public void save(LoanInfo loanInfo);
 
 }
