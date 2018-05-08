@@ -1,0 +1,16 @@
+server:
+  port: 9002
+  context-path: /openapi
+spring:
+  application:
+    name: rong360-web  
+druid:
+  datasource:
+    base:
+      mainJdbcUrl: jdbc:mysql://127.0.0.1:3306/daichao?characterEncoding=utf-8&autoReconnectForPools=true&useSSL=false
+      mainUserName: root
+      mainPassword: woshidengbin
+      slaveJdbcUrl: jdbc:mysql://127.0.0.1:3306/daichao?characterEncoding=utf-8&autoReconnectForPools=true&useSSL=false
+      slaveUserName: root
+      slavePasswod: woshidengbin
+

@@ -22,19 +22,19 @@ import com.dbdai.daichao.dao.BaseRouteDataSource;
 @Configuration
 public class DynamicDataSourceConfig {
 
-	@Resource(name = "mainDunDataSource")
-	private DruidDataSource mainDunDataSource;
-	@Resource(name = "slaveDunDataSource")
-	private DruidDataSource slaveDunDataSource;
+	@Resource(name = "mainDaichaoDataSource")
+	private DruidDataSource mainDaichaoDataSource;
+	@Resource(name = "slaveDaichaoDataSource")
+	private DruidDataSource slaveDaichaoDataSource;
 
-	@Bean(name = "dunDataSource")
-	public DataSource dbRouterDunDatasource() {
+	@Bean(name = "DaichaoDataSource")
+	public DataSource dbRouterDaichaoDatasource() {
 		BaseRouteDataSource dataSource = new BaseRouteDataSource();
 		Map<Object, Object> dataSources = new HashMap<Object, Object>();
-		dataSources.put(DataSourceEnum.WRITE, mainDunDataSource);
-		dataSources.put(DataSourceEnum.READ, slaveDunDataSource);
+		dataSources.put(DataSourceEnum.WRITE, mainDaichaoDataSource);
+		dataSources.put(DataSourceEnum.READ, slaveDaichaoDataSource);
 		dataSource.setTargetDataSources(dataSources);
-		dataSource.setDefaultTargetDataSource(mainDunDataSource);
+		dataSource.setDefaultTargetDataSource(mainDaichaoDataSource);
 		return dataSource;
 	}
 

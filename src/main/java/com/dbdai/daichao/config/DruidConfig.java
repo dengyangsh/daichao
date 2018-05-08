@@ -19,23 +19,23 @@ public class DruidConfig {
 
 	private Logger logger = LoggerFactory.getLogger(DruidConfig.class);
 	// 主数据库配置
-	@Value("${druid.datasource.base.mainJdbcUrl}")
-	private String mainBaseJdbcUrl;
-	@Value("${druid.datasource.base.mainUserName}")
-	private String mainBaseUserName;
-	@Value("${druid.datasource.base.mainPassword}")
-	private String mainBasePassword;
+	@Value("${druid.datasource.daichao.mainJdbcUrl}")
+	private String mainDaichaoJdbcUrl;
+	@Value("${druid.datasource.daichao.mainUserName}")
+	private String mainDaichaoUserName;
+	@Value("${druid.datasource.daichao.mainPassword}")
+	private String mainDaichaoPassword;
 
 	// 从数据库配置
-	@Value("${druid.datasource.base.slaveJdbcUrl}")
-	private String slaveBaseJdbcUrl;
-	@Value("${druid.datasource.base.slaveUserName}")
-	private String slaveBaseUserName;
-	@Value("${druid.datasource.base.slavePasswod}")
-	private String slaveBasePasswod;
+	@Value("${druid.datasource.daichao.slaveJdbcUrl}")
+	private String slaveDaichaoJdbcUrl;
+	@Value("${druid.datasource.daichao.slaveUserName}")
+	private String slaveDaichaoUserName;
+	@Value("${druid.datasource.daichao.slavePasswod}")
+	private String slaveDaichaoPasswod;
 
-	@Bean(name = "mainBaseDataSource", initMethod = "init", destroyMethod = "close")
-	public DataSource mainBaseDataSource() {
+	@Bean(name = "mainDaichaoDataSource", initMethod = "init", destroyMethod = "close")
+	public DataSource mainDaichaoDataSource() {
 		DruidDataSource mainDataSource = new DruidDataSource();
 		mainDataSource.setInitialSize(5);
 		mainDataSource.setMaxActive(20);
@@ -47,14 +47,14 @@ public class DruidConfig {
 		mainDataSource.setTestWhileIdle(true);
 		mainDataSource.setTestOnBorrow(false);
 		mainDataSource.setTestOnReturn(false);
-		mainDataSource.setUrl(mainBaseJdbcUrl);
-		mainDataSource.setUsername(mainBaseUserName);
-		mainDataSource.setPassword(mainBasePassword);
+		mainDataSource.setUrl(mainDaichaoJdbcUrl);
+		mainDataSource.setUsername(mainDaichaoUserName);
+		mainDataSource.setPassword(mainDaichaoPassword);
 		logger.info("主库数据源设置完成");
 		return mainDataSource;
 	}
 
-	@Bean(name = "slaveBaseDataSource", initMethod = "init", destroyMethod = "close")
+	@Bean(name = "slaveDaichaoDataSource", initMethod = "init", destroyMethod = "close")
 	public DataSource slaveBaseDataSource() {
 		DruidDataSource mainDataSource = new DruidDataSource();
 		mainDataSource.setInitialSize(5);
@@ -67,9 +67,9 @@ public class DruidConfig {
 		mainDataSource.setTestWhileIdle(true);
 		mainDataSource.setTestOnBorrow(false);
 		mainDataSource.setTestOnReturn(false);
-		mainDataSource.setUrl(slaveBaseJdbcUrl);
-		mainDataSource.setUsername(slaveBaseUserName);
-		mainDataSource.setPassword(slaveBasePasswod);
+		mainDataSource.setUrl(slaveDaichaoJdbcUrl);
+		mainDataSource.setUsername(slaveDaichaoUserName);
+		mainDataSource.setPassword(slaveDaichaoPasswod);
 		logger.info("从库数据源设置完成");
 		return mainDataSource;
 	}
