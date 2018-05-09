@@ -27,7 +27,7 @@ public class DynamicDataSourceConfig {
 	@Resource(name = "slaveDaichaoDataSource")
 	private DruidDataSource slaveDaichaoDataSource;
 
-	@Bean(name = "DaichaoDataSource")
+	@Bean(name = "daichaoDataSource")
 	public DataSource dbRouterDaichaoDatasource() {
 		BaseRouteDataSource dataSource = new BaseRouteDataSource();
 		Map<Object, Object> dataSources = new HashMap<Object, Object>();

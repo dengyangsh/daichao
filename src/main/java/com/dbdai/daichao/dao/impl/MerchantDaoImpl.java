@@ -25,6 +25,7 @@ public class MerchantDaoImpl extends BaseDAOImpl<Merchant> implements MerchantDa
 	public void setJdbc(NamedParameterJdbcTemplate jdbcDaiChao) {
 		super.setJdbc(jdbcDaiChao);
 	}
+	
 	@Override
 	public List<Merchant> getAdaptMerchant(Integer score, Integer age, BigDecimal amount) {
 		QueryCriteria criteria = new QueryCriteria();
