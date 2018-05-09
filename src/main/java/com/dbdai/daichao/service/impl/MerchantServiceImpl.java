@@ -20,13 +20,13 @@ public class MerchantServiceImpl implements MerchantService {
 	public List<Merchant> getAdaptMerchant(Integer score, Integer age, BigDecimal amount) {
 		List<Merchant> adaptMerchant = null;
 		adaptMerchant = merchantDao.getAdaptMerchant(score, age, amount);
-		if (adaptMerchant == null) {
+		if (adaptMerchant.isEmpty()) {
 			// 没有查询到完全匹配的商户,匹配用户可以借的
 			adaptMerchant = merchantDao.getAdaptMerchant(score, age, null);
-			if (adaptMerchant == null) {
+			if (adaptMerchant.isEmpty()) {
 				//
 				adaptMerchant = merchantDao.getAdaptMerchant(score, null, null);
-				if (adaptMerchant == null) {
+				if (adaptMerchant.isEmpty()) {
 					adaptMerchant = merchantDao.getAdaptMerchant(null, null, null);
 				}
 			}
