@@ -6,7 +6,7 @@ spring:
     name: rong360-web  
 druid:
   datasource:
-    base:
+    daichao:
       mainJdbcUrl: jdbc:mysql://127.0.0.1:3306/daichao?characterEncoding=utf-8&autoReconnectForPools=true&useSSL=false
       mainUserName: root
       mainPassword: woshidengbin
